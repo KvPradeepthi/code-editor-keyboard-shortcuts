@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Editor with Keyboard Shortcuts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Advanced Code Editor</h1>
+      <div class="shortcuts-info">
+        <p><strong>Keyboard Shortcuts:</strong></p>
+        <ul>
+          <li>Ctrl+S: Save</li>
+          <li>Ctrl+Z: Undo</li>
+          <li>Ctrl+Shift+Z: Redo</li>
+          <li>Tab: Indent</li>
+          <li>Shift+Tab: Outdent</li>
+          <li>Ctrl+/: Comment Toggle</li>
+          <li>Ctrl+K, Ctrl+C: Chord Example</li>
+        </ul>
+      </div>
+    </header>
+    
+    <main>
+      <div class="editor-section">
+        <label for="editor-input">Code Editor:</label>
+        <textarea 
+          id="editor-input" 
+          data-test-id="editor-input"
+          class="editor"
+          placeholder="Type your code here... Try Ctrl+S, Ctrl+Z, Tab, Ctrl+/"
+          spellcheck="false"
+          role="textbox"
+          aria-label="Code Editor"
+          aria-describedby="editor-shortcuts">
+        </textarea>
+        <div id="editor-shortcuts" style="display:none;">Use keyboard shortcuts for editing</div>
+      </div>
+      
+      <div class="dashboard-section">
+        <h2>Event Dashboard</h2>
+        <div class="dashboard-container" data-test-id="event-dashboard" role="log" aria-live="polite">
+          <div class="event-controls">
+            <button id="clear-events" class="btn">Clear Events</button>
+          </div>
+          <div class="event-stats">
+            <p>Total Events: <span id="event-count">0</span></p>
+            <p>Highlight Calls: <span id="highlight-count">0</span></p>
+          </div>
+          <ul id="event-log-list" data-test-id="event-log-list" class="event-list"></ul>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
