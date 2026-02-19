@@ -1,0 +1,13 @@
+{
+  "name": "code-editor-keyboard-shortcuts",
+  "version": "1.0.0",
+  "description": "A high-performance code editor with advanced keyboard event handling",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["editor", "keyboard", "shortcuts"],
+  "author": "",
+  "license": "MIT"
+}
