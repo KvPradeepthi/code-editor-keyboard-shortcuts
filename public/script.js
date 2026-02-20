@@ -96,12 +96,44 @@ class CodeEditor {
     }
     
     // Requirement 3: Tab indentation
+
+        // Shift+Tab: Outdent (Requirement 4)
+        if (key === 'Tab' && isShiftPressed) {
+                event.preventDefault();
+                this.outdentLine();
+                return;
+              }
     if (key === 'Tab') {
       event.preventDefault();
       this.insertAtCursor('  ');
       this.updateCursorPosition();
       return;
     }
+    
+        // Enter: Maintain indentation (Requirement 5)
+        if (key === 'Enter') {
+            event.preventDefault();
+            const currentLine = this.getCurrentLine();
+            const indent = currentLine.match(/^\s*/)[0];
+            this.insertAtCursor('\n' + indent);
+            this.updateCursorPosition();
+            return;
+        }
+
+        // Ctrl+S or Cmd+S: Save shortcut (Requirement 3)
+        if (isCtrlPressed && key.toLowerCase() === 's') {
+                event.preventDefault();
+                this.logEvent('Action: Save');
+                return;
+              }
+
+        // Ctrl+/ or Cmd+/: Toggle comments (Requirement 7)
+        if (isCtrlPressed && key === '/') {
+                event.preventDefault();
+                this.toggleCommentLine();
+                this.logEvent('Comment toggle executed');
+                return;
+              }
     
     // Chord example: Ctrl+K, Ctrl+C (Comment toggle)
     if (isCtrlPressed && key.toLowerCase() === 'k') {
